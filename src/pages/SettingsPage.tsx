@@ -11,7 +11,7 @@ const SettingsPage = () => {
   const { lockedApps, toggleAppLock, emergencyPin } = useStore();
   const navigate = useNavigate();
 
-  const categories = [...new Set(lockedApps.map((a) => a.category))];
+  const categories = [...new Set(lockedApps.map((a) => a.category))] as string[];
 
   return (
     <div className="min-h-screen bg-background pb-8">
