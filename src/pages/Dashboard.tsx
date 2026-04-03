@@ -61,9 +61,14 @@ const Dashboard = () => {
             <h1 className="text-2xl font-display font-bold text-primary-foreground">MomLock</h1>
             <p className="text-primary-foreground/80 text-sm">Your digital mom is watching 👀</p>
           </div>
-          <button onClick={() => navigate("/settings")} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
-            <Settings className="w-5 h-5 text-primary-foreground" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button onClick={() => navigate("/settings")} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
+              <Settings className="w-5 h-5 text-primary-foreground" />
+            </button>
+            <button onClick={signOut} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
+              <LogOut className="w-5 h-5 text-primary-foreground" />
+            </button>
+          </div>
         </div>
 
         {/* Mom message */}
