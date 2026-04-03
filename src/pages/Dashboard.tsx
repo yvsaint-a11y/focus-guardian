@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import momCharacter from "@/assets/mom-character.png";
 import {
   Flame, Clock, Lock, Unlock, Target, Settings,
-  Bell, Plus, Trash2, CheckCircle2, Circle
+  Bell, Plus, Trash2, CheckCircle2, Circle, LogOut
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -30,6 +31,7 @@ const Dashboard = () => {
     toggleGoalComplete, streakDays, totalTimeSaved, todayTimeSaved,
     momMessages, removeGoal, addGoal,
   } = useStore();
+  const { signOut } = useAuth();
   const navigate = useNavigate();
   const [showAddGoal, setShowAddGoal] = useState(false);
   const [newGoalTitle, setNewGoalTitle] = useState("");
@@ -59,9 +61,14 @@ const Dashboard = () => {
             <h1 className="text-2xl font-display font-bold text-primary-foreground">MomLock</h1>
             <p className="text-primary-foreground/80 text-sm">Your digital mom is watching 👀</p>
           </div>
-          <button onClick={() => navigate("/settings")} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
-            <Settings className="w-5 h-5 text-primary-foreground" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button onClick={() => navigate("/settings")} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
+              <Settings className="w-5 h-5 text-primary-foreground" />
+            </button>
+            <button onClick={signOut} className="p-2 rounded-xl bg-primary-foreground/20 backdrop-blur">
+              <LogOut className="w-5 h-5 text-primary-foreground" />
+            </button>
+          </div>
         </div>
 
         {/* Mom message */}
