@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import momCharacter from "@/assets/mom-character.png";
 import {
   Flame, Clock, Lock, Unlock, Target, Settings,
-  Bell, Plus, Trash2, CheckCircle2, Circle
+  Bell, Plus, Trash2, CheckCircle2, Circle, LogOut
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
