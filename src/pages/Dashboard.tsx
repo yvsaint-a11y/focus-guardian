@@ -31,6 +31,7 @@ const Dashboard = () => {
     toggleGoalComplete, streakDays, totalTimeSaved, todayTimeSaved,
     momMessages, removeGoal, addGoal,
   } = useStore();
+  const { signOut } = useAuth();
   const navigate = useNavigate();
   const [showAddGoal, setShowAddGoal] = useState(false);
   const [newGoalTitle, setNewGoalTitle] = useState("");
