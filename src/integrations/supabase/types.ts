@@ -14,7 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      goals: {
+        Row: {
+          completed: boolean
+          created_at: string
+          duration: number
+          id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          created_at?: string
+          duration?: number
+          id?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          created_at?: string
+          duration?: number
+          id?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      locked_apps: {
+        Row: {
+          app_icon: string
+          app_name: string
+          category: string
+          created_at: string
+          id: string
+          locked: boolean
+          user_id: string
+        }
+        Insert: {
+          app_icon?: string
+          app_name: string
+          category?: string
+          created_at?: string
+          id?: string
+          locked?: boolean
+          user_id: string
+        }
+        Update: {
+          app_icon?: string
+          app_name?: string
+          category?: string
+          created_at?: string
+          id?: string
+          locked?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
+      productivity_stats: {
+        Row: {
+          created_at: string
+          date: string
+          focus_active: boolean
+          id: string
+          onboarded: boolean
+          streak_days: number
+          today_time_saved: number
+          total_time_saved: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          focus_active?: boolean
+          id?: string
+          onboarded?: boolean
+          streak_days?: number
+          today_time_saved?: number
+          total_time_saved?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          focus_active?: boolean
+          id?: string
+          onboarded?: boolean
+          streak_days?: number
+          today_time_saved?: number
+          total_time_saved?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
