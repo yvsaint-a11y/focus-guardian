@@ -50,7 +50,7 @@ const MOM_MESSAGES = [
   "No more videos! Time to be productive! 💪",
 ];
 
-const updateStats = async (fields: Record<string, unknown>) => {
+const updateStats = async (fields: { onboarded?: boolean; focus_active?: boolean; streak_days?: number; total_time_saved?: number; today_time_saved?: number }) => {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
   await supabase.from('productivity_stats').update(fields).eq('user_id', user.id);

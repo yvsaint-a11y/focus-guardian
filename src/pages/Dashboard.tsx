@@ -43,7 +43,6 @@ const Dashboard = () => {
   const handleAddGoal = () => {
     if (!newGoalTitle.trim()) return;
     addGoal({
-      id: Date.now().toString(),
       title: newGoalTitle,
       duration: 15,
       completed: false,
