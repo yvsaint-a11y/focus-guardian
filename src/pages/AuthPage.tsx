@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import momCharacter from "@/assets/mom-character.png";
 import { Lock, Mail, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -118,6 +119,14 @@ const AuthPage = () => {
               />
             </div>
           </div>
+
+          {isLogin && (
+            <div className="text-right">
+              <Link to="/forgot-password" className="text-sm text-primary font-medium hover:underline">
+                Forgot password?
+              </Link>
+            </div>
+          )}
 
           <Button
             type="submit"
