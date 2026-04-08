@@ -18,11 +18,11 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 24 } },
+  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 24 } },
 };
 
-const StatCard = ({ icon: Icon, label, value, color, index }: {
-  icon: React.ElementType; label: string; value: string; color: string; index: number;
+const StatCard = ({ icon: Icon, label, value, color }: {
+  icon: React.ElementType; label: string; value: string; color: string;
 }) => (
   <motion.div
     variants={item}
@@ -42,7 +42,7 @@ const StatCard = ({ icon: Icon, label, value, color, index }: {
 const Dashboard = () => {
   const {
     focusActive, setFocusActive, lockedApps, goals,
-    toggleGoalComplete, streakDays, totalTimeSaved, todayTimeSaved,
+    toggleGoalComplete, streakDays, todayTimeSaved,
     momMessages, removeGoal, addGoal,
   } = useStore();
   const { signOut } = useAuth();
@@ -150,10 +150,10 @@ const Dashboard = () => {
           animate="show"
           className="grid grid-cols-2 gap-3 mb-6"
         >
-          <StatCard icon={Flame} label="Day Streak" value={`${streakDays}`} color="bg-primary/15 text-primary" index={0} />
-          <StatCard icon={Clock} label="Saved Today" value={`${todayTimeSaved}m`} color="bg-secondary/15 text-secondary" index={1} />
-          <StatCard icon={Target} label="Goals Done" value={`${completedGoals}/${goals.length}`} color="bg-success/15 text-success" index={2} />
-          <StatCard icon={Lock} label="Apps Locked" value={`${lockedCount}`} color="bg-accent/15 text-accent-foreground" index={3} />
+          <StatCard icon={Flame} label="Day Streak" value={`${streakDays}`} color="bg-primary/15 text-primary" />
+          <StatCard icon={Clock} label="Saved Today" value={`${todayTimeSaved}m`} color="bg-secondary/15 text-secondary" />
+          <StatCard icon={Target} label="Goals Done" value={`${completedGoals}/${goals.length}`} color="bg-success/15 text-success" />
+          <StatCard icon={Lock} label="Apps Locked" value={`${lockedCount}`} color="bg-accent/15 text-accent-foreground" />
         </motion.div>
 
         {/* Goals */}
